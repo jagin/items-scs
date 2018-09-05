@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+
+  items-mongodb:
+    image: mongo:3
+    container_name: items-mongodb
+
+  items-scs:
+    image: items-scs
+    build:
+      context: .
+    container_name: items-scs
+    depends_on:
+      - items-mongodb
+    environment:
+      - DATABASE_URL=mongodb://items-mongodb:27017/items-db
+    env_file: .env
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    # expose:
+    #   - "9229"
+    # ports:
+    #   - "9229:9229"
+    entrypoint:
+      - npm
+      - run
+      - nodemon
+      # - --
+      # - --inspect

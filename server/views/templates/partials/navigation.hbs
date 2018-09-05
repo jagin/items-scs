@@ -1,0 +1,24 @@
+<!--# block name="navigation_stub" -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="/items/{{i18n.language}}">SCS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav mr-auto">
+        {{> menu active=true}}
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{i18n "language" context=i18n.language}}</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/items/en">{{i18n "language_en"}}</a>
+            <a class="dropdown-item" href="/items/pl">{{i18n "language_pl"}}</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<!--# endblock -->
+<!--# include virtual="/home/{{i18n.language}}/partials/navigation?scs=items" stub="navigation_stub" -->

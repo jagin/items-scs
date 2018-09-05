@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+require('dotenv').config()
+const mdb = require('../mdb')
+const migration = require('../migration')
+
+const args = process.argv.slice(2)
+const targetMigration = args[0]
+
+mdb.connect(process.env.DATABASE_URL)
+  .then(db => {
+    return migration.lock(db)
+      .then(() => migration.status(db))
+      .then(migrationStatus => migrationStatus.name)
+      .then(lastMigration => migration.down(db, lastMigration, targetMigration || lastMigration))
+      .then(migrations => {
+        const migrationNames = migrations.reduce((prev, curr) => prev.concat(curr.name), [])
+        console.log('Database downgraded: ' + (migrationNames.length ? migrationNames.join(', ') : 'none'))
+      })
+      .then(() => migration.unlock(db))
+      .finally(() => {
+        db.close()
+      })
+  })
+  .catch(err => {
+    console.error(err)
+    process.exit(1)
+  })

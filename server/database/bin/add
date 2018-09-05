@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+const migration = require('../migration')
+
+const args = process.argv.slice(2)
+
+if (!args[0]) {
+  console.error('Migration name is required!')
+  process.exit(1)
+}
+
+migration.add(args[0])
+  .then(migration => {
+    console.log(`Migration ${migration.name} added`)
+  })
+  .catch(err => {
+    console.error(err)
+    process.exit(1)
+  })

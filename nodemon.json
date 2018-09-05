@@ -1,0 +1,15 @@
+{
+  "verbose": true,
+  "restartable": "rs",
+  "watch": [
+    "server/"
+  ],
+  "ignore": [
+    "server/public/*",
+    "server/locales/*"
+  ],
+  "ext": "js json hbs",
+  "events": {
+    "restart": "npm run lint"
+  }
+}

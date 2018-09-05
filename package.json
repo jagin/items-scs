@@ -1,0 +1,52 @@
+{
+  "name": "items-scs",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Items SCS",
+  "main": "server",
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "scripts": {
+    "lint": "standard",
+    "pretest": "npm run lint",
+    "test": "lab -v -c",
+    "start": "node server",
+    "prenodemon": "npm run lint",
+    "nodemon": "nodemon",
+    "db:add": "node server/database/bin/add",
+    "db:init": "node server/database/bin/init",
+    "db:status": "node server/database/bin/status",
+    "db:up": "node server/database/bin/up",
+    "db:down": "node server/database/bin/down"
+  },
+  "dependencies": {
+    "accept-language-parser": "^1.5.0",
+    "blipp": "^3.0.0",
+    "bluebird": "^3.5.1",
+    "dotenv": "^6.0.0",
+    "glue": "^5.0.0",
+    "good": "^8.1.1",
+    "good-console": "^7.1.0",
+    "good-squeeze": "^5.1.0",
+    "handlebars": "^4.0.11",
+    "hapi": "^17.5.2",
+    "hapi-auth-jwt2": "^8.1.0",
+    "hapi-swagger": "^9.1.1",
+    "hoek": "^5.0.3",
+    "i18next": "^11.5.0",
+    "i18next-node-fs-backend": "^1.2.1",
+    "inert": "^5.1.0",
+    "mongodb": "^3.1.1",
+    "prom-client": "^11.1.1",
+    "vision": "^5.3.3"
+  },
+  "devDependencies": {
+    "code": "^5.2.0",
+    "lab": "^15.5.0",
+    "nodemon": "^1.18.3",
+    "proxyquire": "^2.1.0",
+    "sinon": "^6.1.5",
+    "standard": "*"
+  }
+}

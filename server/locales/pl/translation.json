@@ -1,0 +1,8 @@
+{
+  "login": "Loguj",
+  "logout": "Wyloguj",
+  "account": "Moje konto",
+  "language_en": "English",
+  "language_pl": "Polski",
+  "loginRedirectLink": "Jeżeli nie zostaniesz przekierowany autmatycznie, kliknij ten <a href='{{returnToUrl}}'>odsyłacz</a>"
+}

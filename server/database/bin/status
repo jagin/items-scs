@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+require('dotenv').config()
+const mdb = require('../mdb')
+const migration = require('../migration')
+
+mdb.connect(process.env.DATABASE_URL)
+  .then(db => {
+    return migration.status(db)
+      .then(lastMigration => {
+        console.log('Database status: ' + (lastMigration.name ? `${lastMigration.name}` : 'clean') + (lastMigration.lock ? ' (locked)' : ''))
+      })
+      .finally(() => {
+        db.close()
+      })
+  })
+  .catch(err => {
+    console.error(err)
+    process.exit(1)
+  })
