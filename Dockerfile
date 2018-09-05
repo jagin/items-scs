@@ -24,7 +24,6 @@ RUN npm install
 FROM dependencies AS test
 COPY server server
 COPY test test
-COPY .env .env
 RUN npm test
 
 #

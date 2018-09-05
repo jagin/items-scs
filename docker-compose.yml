@@ -14,7 +14,7 @@ services:
     depends_on:
       - items-mongodb
     environment:
-      - DATABASE_URL=mongodb://items-mongodb:27017/items-db
+      - DATABASE_URL=mongodb://items-mongodb:27017
     env_file: .env
     volumes:
       - .:/app
