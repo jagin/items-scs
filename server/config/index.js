@@ -17,9 +17,9 @@ const envVarsSchema = Joi.object({
   JWT_KEY: Joi.string()
     .required(),
   JWT_AUDIENCE: Joi.string()
-    .required(),
+    .allow(''),
   JWT_ISSUER: Joi.string()
-    .required()
+    .allow('')
 }).unknown()
   .required()
 
