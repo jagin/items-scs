@@ -19,7 +19,7 @@ services:
     volumes:
       - .:/app
     ports:
-      - "8000:8000"
+      - "${PORT:-8000}:${PORT:-8000}"
     # expose:
     #   - "9229"
     # ports:
@@ -28,5 +28,6 @@ services:
       - npm
       - run
       - nodemon
-      # - --
+      - --
+      - -L
       # - --inspect

@@ -17,7 +17,7 @@ module.exports = {
       verifyOptions: {
         audience: options.jwt.audience,
         issuer: options.jwt.issuer,
-        ignoreExpiration: options.ignoreExpiration,
+        ignoreExpiration: options.jwt.ignoreExpiration,
         algorithms: ['HS256']
       },
       validate
